@@ -6,10 +6,10 @@
         <div class="item-details">
         <h4>{{item.name}}</h4>
         <p>Price: {{item.price | currency:'INR':'symbol':'1.2-2'}}/-</p> 
-        <div class="quntityControls">
-            <button class="btn btn-sm btn-warning" (click)="decreaseitem(item)">-</button>&nbsp;
+        <div class="quantityControls">
+            <button class="btn  btn-warning"  (click)="decreaseitem(item)">-</button>&nbsp;
             <span>{{item.quantity}}</span>&nbsp;
-            <button class="btn btn-sm btn-warning" (click)="increaseitem(item)">+</button><br>
+            <button class="btn  btn-warning"  (click)="increaseitem(item)">+</button><br>
         
     </div>
         <p>Sub Total: {{item.price * item.quantity |currency:'INR'}}</p>
@@ -66,7 +66,6 @@
                 <div class="footer">
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <button class="btn btn-secondary btn-sm ">Cancel</button>
                         </div>
                         <div class="col-md-6 text-center">
                             <button class="btn btn-success btn-sm " [disabled]="userForm.invalid" (click)="placeOrder()" >Place Order</button>
