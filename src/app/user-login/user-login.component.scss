@@ -20,6 +20,12 @@ small{
 
 //mediaQuery
 
+@media only screen and (max-width: 1300px){
+   .card{
+      margin-left: -200%;
+      width: 120%;
+   }
+}
 
 @media only screen and (max-width: 900px){
    .card{
