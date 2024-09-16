@@ -20,10 +20,10 @@ span{
    color: red;
 }
 
-
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 900px){
    .card{
-      margin-left: -60%;
+      margin-left: -30%;
+      width: 120%;
    }
 }
 // @media only screen and (max-width: 600px){
