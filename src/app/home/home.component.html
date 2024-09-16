@@ -1,0 +1,24 @@
+<div class="homepage">
+    <div class="profile">
+        <img src="assets/images/profile.webp" alt="">
+    </div>
+    <div class="logo">
+    <img src="assets/images/logo (1).webp" alt="img" class="img">
+    <div class="hoverText">
+        <p> Seed  Indeed! </p>
+    </div>
+    
+    <div class="roles">
+        <button (click)="showUserForm()" class="btn btn-success">User Login</button>&nbsp;
+        <button (click)="showAdminForm()" class="btn btn-danger">Admin Login</button>
+    </div>
+</div>
+<div class="forms">
+    <div *ngIf = "isUserFormVisible">
+        <app-user-login></app-user-login>
+    </div>
+    <div *ngIf = "isAdminFormVisible">
+        <app-admin-login></app-admin-login>
+    </div>
+</div>
+</div>

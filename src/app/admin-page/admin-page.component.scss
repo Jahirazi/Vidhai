@@ -1,0 +1,29 @@
+.card{
+    width: 90%;
+}
+.col-md-3{
+    min-height: calc(10vh - 80px); 
+    padding: 20px 40px;
+   
+}
+input{
+    width: 80%;
+    margin-left: 10%;
+}
+.modal{
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 768px){
+    
+    .row>* {
+        width: 100%;
+        max-width: 50%;
+    }
+        #bag{
+            font-size: 10px;
+        } 
+        #bag i{
+            font-size: 35px;
+        }
+    }

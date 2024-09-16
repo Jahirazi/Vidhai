@@ -1,0 +1,28 @@
+h1{
+    color: rgb(147, 235, 147);
+}
+h1 span{
+    color: rgb(243, 128, 128);
+}
+input{
+    width: 50%;
+    height: 5vh;
+    margin-top: 10px;
+}
+.container{
+    text-align: center;
+    
+}
+#navbar{
+position: sticky;
+top: 0;
+left: 0;
+z-index: 100;
+padding: 10px;
+box-shadow: 5px 5px 20px grey;
+background-color: white;
+}
+.col-md-12{
+    display: flex;
+    justify-content: space-between;
+}

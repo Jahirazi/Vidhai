@@ -1,0 +1,85 @@
+<div class="cart-page">
+<div class="cart-container" id="cart"  *ngIf="cartItems.length > 0; else emptyCart">
+    <h2>Your Bag</h2>
+    <div *ngFor="let item of cartItems" class="cart-item">
+        <img [src]="item.cover" alt="" class="item-image">
+        <div class="item-details">
+        <h4>{{item.name}}</h4>
+        <p>Price: {{item.price | currency:'INR':'symbol':'1.2-2'}}/-</p> 
+        <div class="quntityControls">
+            <button class="btn btn-sm btn-warning" (click)="decreaseitem(item)">-</button>&nbsp;
+            <span>{{item.quantity}}</span>&nbsp;
+            <button class="btn btn-sm btn-warning" (click)="increaseitem(item)">+</button><br>
+        
+    </div>
+        <p>Sub Total: {{item.price * item.quantity |currency:'INR'}}</p>
+    </div></div>
+    <div class="cart-total">
+        <h3>Total: {{totalPrice | currency:'INR'}}</h3>
+    </div>
+
+    <div class="placeOrderbtn">
+        <button class="btn btn-sm btn-success" style="width: 40%;" (click)="openModal()">Check Out</button>
+    </div>
+
+<button class="clear-cart-button" (click)="clearCart()">Clear Bag</button>
+</div></div>
+
+
+<ng-template #emptyCart>
+    <div class="emptyCartContainer">
+        <p>Your Bag is Empty!</p>
+    <img src="assets/images/emptyCart.png" class="emptyCart" alt="empty">
+    <button class="btn btn-sm btn-success" id="goToProducts" (click)="goToProducts()" >Go To Products</button>
+    
+</div>
+</ng-template>
+
+<!--Modal-->
+
+<div class="modal" id="addressModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--modal header-->
+            <div class="modal-header bg-warning text-white">
+                <h6 class="modal-title">Add Delivery Details</h6>
+                <button type="button" class="btn-close btn-sm text-white" (click)="closeModal()"></button>
+            </div>
+            <form #userForm="ngForm" (ngSubmit)="placeOrder()">
+                <!--model body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <label class="for-label">Name</label>
+                            <input type="text" name="name" class="form-control" [(ngModel)]="address.name" #name="ngModel" required  placeholder="Name"  />
+                            <div *ngIf="name.invalid && name.touched" class="text-danger">Name is Required</div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <label class="for-label">Address</label>
+                            <input type="text" name="address" class="form-control" [(ngModel)]="address.address"  placeholder="Address"/>
+                            <div *ngIf="address.invalid && address.touched" class="text-danger">Address is Required</div>
+                        </div>
+                    </div><br>
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-secondary btn-sm ">Cancel</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-success btn-sm " [disabled]="userForm.invalid" (click)="placeOrder()" >Place Order</button>
+                        </div>
+                
+                    </div>
+                </div><br>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="orderConfirmation" class="alert alert-success text-center" id="orderPlaced" role="alert">
+    <strong>Order Placed Successfully!</strong><br>
+    Name: {{orderDetails.name}}<br>Address: {{orderDetails.address}} <br>&nbsp;   
+</div>

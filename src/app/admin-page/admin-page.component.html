@@ -1,0 +1,58 @@
+<app-header></app-header><br>
+<div class="container">
+    <input type="text" placeholder="Search" [(ngModel)]="searchTerm"
+    (ngModelChange)="filterProducts()">
+    <div class="row">
+        <div class="col-md-3 col-sm-12" *ngFor="let product of filteredProducts">
+            <div class="card">
+                <img [src]="product.cover" alt="">
+                <div class="card-body">
+                    <h5>{{ product.name }}</h5>
+                    <h6>{{ product.price  | currency:'INR':'symbol':'1.2-2' }}/-</h6>
+                    <button class="btn btn-success" (click)="onUpdate(product)">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="productmodel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--modal header-->
+            <div class="modal-header bg-success text-white">
+                <h6 class="modal-title">Update Product Details</h6>
+                <button type="button" class="btn-close btn-sm text-white" (click)="onCloseModal()"></button>
+            </div>
+            <form #userForm="ngForm">
+                <!--model body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <label class="for-label">Name</label>
+                            <input type="text" name="name" class="form-control" [(ngModel)]="selectedProduct.name" placeholder="Name"  />
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <label class="for-label">Price</label>
+                            <input type="text" name="price" class="form-control" [(ngModel)]="selectedProduct.price" placeholder="Price"/>
+                        </div>
+                    </div><br>
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-secondary btn-sm " (click)="onCloseModal()">Cancel</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-success btn-sm " 
+                            (click)="updatePrice(selectedProduct.id,selectedProduct.price)">Save Changes</button>
+                        </div>
+                
+                    </div>
+                </div><br>
+            </form>
+        </div>
+    </div>
+</div>
+

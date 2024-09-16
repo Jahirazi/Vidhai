@@ -1,0 +1,21 @@
+
+<div class="loginUser">
+    <form [formGroup]="userLogin" (ngSubmit)="onSubmit()">
+       <div class="card">
+        
+        <div class="user col-12 text-success ">User Login</div><br>
+        <input type="text" id="username" formControlName="username" placeholder="Username"/>
+        <div *ngIf="userLogin.controls['username'].touched && userLogin.controls['username'].invalid"></div>
+        <small *ngIf="userLogin.controls['username'].errors ?.['required']">Please enter Username</small><br>
+        
+        <input type="text" id="password"formControlName="password" placeholder="Password"/>
+        <div *ngIf="userLogin.controls['password'].touched  && userLogin.controls['password'].invalid"></div>
+        <small *ngIf="userLogin.controls['password'].errors ?.['required']">Please enter Password</small>
+        <small *ngIf="userLogin.controls['password'].errors ?.['minlength']">Password must be 6 Characters</small><br>
+        
+        <button class="btn btn-sm btn-success" type="submit">Login</button><br>
+       </div> 
+
+       
+    </form>
+</div>

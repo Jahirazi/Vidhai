@@ -1,0 +1,31 @@
+<app-header></app-header><br> 
+<div class="container">
+    
+<input type="text" placeholder="Search" [(ngModel)]="searchTerm">
+    <div class="row">
+<button class="btn btn-sm " id="bag" (click)="cart()">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="badge bg-danger cart">{{cartValue}}</span>
+    </button>
+        <div class="col-md-3 col-sm-12" *ngFor="let product of filteredProducts">
+            <div class="product-container">
+            <div class="card">
+                <img [src]="product.cover" alt="">
+                <div class="card-body">
+                    <h5>{{ product.name }}</h5>
+                    <h6>{{product.price | currency:'INR':'symbol':'1.2-2'}}/-</h6>
+                    <div *ngIf="!product.isAdded" class="addbutton">
+                        <button class="btn btn btn-success" (click)="addToBag(product)">Add</button>
+                    </div>
+                    <div *ngIf="product.isAdded" class="idButton">
+                        <button class="btn btn-sm btn-warning"  (click)="decreaseQuantity(product)">-</button>
+                    <span > {{product.quantity}}</span> 
+                    <button class="btn btn-sm btn-warning" (click)="increaseQuantity(product)">+</button>
+                    
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+
+.homepage{
+    display: flex;
+    overflow: hidden;
+}
+.logo{
+    position: relative;
+    width: 20%;
+    height: 20%;
+}
+.logo img{
+    margin-top: 10px;
+    border-radius: 60%;
+    margin-left: -460%;
+}
+.hoverText{
+    position: absolute;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    margin-top: 10px;
+    margin-left: -460%;
+    opacity: 0;
+}
+.hoverText p{ 
+    font-weight: bold;
+}
+.logo:hover .hoverText{
+    transform: translateY(0);
+    opacity: 1;
+}
+.img{
+    width: 50%;
+}
+button{
+    margin-left: 10%;
+}
+.roles{
+    margin-left: -45%; 
+    margin-top: -10%;
+}
+
+.profile img{
+    width: 210%;
+    height: 100vh;
+
+}
+
+@media only screen and (max-width:600px){
+
+    .profile img{
+        width: 500%;
+    }
+    .logo img{
+        margin-left: 110%;
+        margin-top: 50%;
+        width: 80px;
+    }
+    .roles{
+        padding: 30px;
+        margin-left: 20px;
+        margin-top: 750%;
+    }
+    .roles button{
+        width: 160px;
+    }
+    
+}

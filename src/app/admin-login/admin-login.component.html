@@ -1,0 +1,14 @@
+
+<div class="loginAdmin">
+
+    <form>
+        <div class="card">
+            
+     <div class="admin col-12 text-danger ">Admin Login</div><br>
+        <input type="text" class="form-input" placeholder="Username" name="username" [(ngModel)]="username"><br>
+        <input type="text" class="form-input" placeholder="Password" name="password" [(ngModel)]="password"><br>
+        <button class="btn btn-danger" type="button" (click)="onLogin()">Login</button><br>
+        <div class="error">{{errormsg}}</div> 
+    </div>
+    </form>
+</div>
